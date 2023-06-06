@@ -1,0 +1,27 @@
+{
+  "name": "ticketblaster",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./services/proxy/index.js & node ./services/auth/index.js & node ./services/posts/index.js & node ./services/storage/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndrianaIvanovska/TicketBlaster.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndrianaIvanovska/TicketBlaster/issues"
+  },
+  "homepage": "https://github.com/AndrianaIvanovska/TicketBlaster#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.2.2"
+  }
+}
