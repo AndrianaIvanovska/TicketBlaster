@@ -1,0 +1,27 @@
+body {
+    margin: 0;
+}
+
+#header {
+    background-color: black;
+    padding: 24px;
+}
+
+#header img {
+    width: 151px;
+}
+
+#header ul {
+    list-style: none;
+    display: inline;
+}
+
+#header li {
+    display: inline;
+    padding: 0 22px;
+}
+
+#header a {
+    color: white;
+    text-decoration: none;
+}
