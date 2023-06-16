@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useParams } from 'react-router-dom';
 
 const ResetPassword = () => {
@@ -11,13 +10,13 @@ const ResetPassword = () => {
         const api = 'url here'
         e.preventDefault();
         try {
-            const response = await axios.patch(`${api}/resetPassword/${token}`, { password });
-            console.log(response);
-            window.location.href = '/'
-            if (response.status === 200) {
-            } else {
-                setError('Password reset failed');
-            }
+            // const response = await axios.patch(`${api}/resetPassword/${token}`, { password });
+            // console.log(response);
+            // window.location.href = '/'
+            // if (response.status === 200) {
+            // } else {
+            //     setError('Password reset failed');
+            // }
         } catch (error) {
             console.log(error);
             setError('Internal server error')
