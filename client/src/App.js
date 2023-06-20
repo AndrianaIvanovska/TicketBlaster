@@ -5,6 +5,7 @@ import Concerts from "./pages/Concerts";
 import LogIn from "./pages/LogIn";
 import ResetPassword from "./pages/ResetPassword";
 import Header from "./components/Header";
+import CreateAccount from "./pages/CreateAccount";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path="/comedy" element={<Comedy />} />
         <Route exact path="/concerts" element={<Concerts />} />
         <Route exact path="/login" element={<LogIn />} />
+        <Route exact path="/createaccount" element={<CreateAccount />} />
         <Route exact path="/resetpassword" element={<ResetPassword />} />
         <Route path='*' element={<Navigate to="/" />} />  {/* or error page */}
       </Routes>
