@@ -1,5 +1,4 @@
 import { Link, useNavigate } from "react-router-dom";
-// import { useEffect } from "react";
 
 
 const Header = () => {
@@ -24,8 +23,8 @@ const Header = () => {
             <li><Link to={'/comedy'}>Stand-up Comedy</Link></li>
         </ul>
         <input type="text" placeholder="Search"></input>
-        <button onClick={navigateToLogIn()}>Log In</button>
-        <button onClick={navigateToCreateAccount()}>Create Account</button>
+        <button onClick={navigateToLogIn}>Log In</button>
+        <button onClick={navigateToCreateAccount}>Create Account</button>
     </div >
 
 

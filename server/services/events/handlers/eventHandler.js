@@ -1,4 +1,4 @@
-const Event = require("../pkg/events/eventSchema");
+const Event = require("../../../pkg/events/eventSchema");
 
 exports.getAll = async (req, res) => {
   try {
