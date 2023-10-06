@@ -6,16 +6,16 @@ const app = express();
 app.use(cors());
 
 
-const authProxy = proxy("http://localhost:10001", {
+const authProxy = proxy("http://127.0.0.1:10001", {
     proxyReqPathResolver: (req) => {
-        return `/api/v1/auth${req.url}`;
+        return `http://127.0.0.1:10001/api/v1/auth${req.url}`;
     },
 });
 
 
-const eventProxy = proxy("http://localhost:10002", {
+const eventProxy = proxy("http://127.0.0.1:10002", {
     proxyReqPathResolver: (req) => {
-        return `/api/v1/events${req.url}`;
+        return `http://127.0.0.1:10002/api/v1/events${req.url}`;
     },
 });
 
@@ -23,9 +23,9 @@ const eventProxy = proxy("http://localhost:10002", {
 app.use("/api/v1/auth", authProxy);
 app.use("/api/v1/events", eventProxy);
 
-app.listen(10000, (err) => {
+app.listen(process.env.PORTEVENT, (err) => {
     if (err) {
         return console.log(err);
     }
-    console.log("proxy service started on port 10000");
+    console.log("proxy service started on port " + process.env.PORTEVENT);
 });

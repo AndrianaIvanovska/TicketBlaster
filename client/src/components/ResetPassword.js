@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-const ResetPassword = () => {
+export const ResetPassword = () => {
     const [password, setPassword] = useState('');
     const { token } = useParams();
     const [error, setError] = useState('');
@@ -38,4 +38,3 @@ const ResetPassword = () => {
     )
 }
 
-export default ResetPassword;

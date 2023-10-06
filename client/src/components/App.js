@@ -1,15 +1,16 @@
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
-import Home from "./pages/Home";
-import Comedy from "./pages/Comedy";
-import Concerts from "./pages/Concerts";
-import LogIn from "./pages/LogIn";
-import ResetPassword from "./pages/ResetPassword";
-import Header from "./components/Header";
-import CreateAccount from "./pages/CreateAccount";
+import React, { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { Home } from "./Home";
+import { Comedy } from "./Comedy";
+import { Concerts } from "./Concerts";
+import { LogIn } from "./LogIn";
+import { ResetPassword } from "./ResetPassword";
+import { Header } from "./Header";
+import { CreateAccount } from "./CreateAccount";
 
-function App() {
+export function App() {
   return (
-    <Router>
+    <div>
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -20,8 +21,8 @@ function App() {
         <Route exact path="/resetpassword" element={<ResetPassword />} />
         <Route path='*' element={<Navigate to="/" />} />  {/* or error page */}
       </Routes>
-    </Router>
+    </div>
   );
 }
 
-export default App;
+

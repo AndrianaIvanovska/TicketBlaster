@@ -7,7 +7,7 @@
 import React, { useState, useEffect } from "react";
 // import ProtectedRoute from "./ProtectedRoute";
 
-const Login = () => {
+export const LogIn = () => {
 
     const initdata = {
         email: "",
@@ -98,4 +98,3 @@ const Login = () => {
     );
 };
 
-export default Login;

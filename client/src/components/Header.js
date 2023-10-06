@@ -1,7 +1,8 @@
+import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 
-const Header = () => {
+export const Header = () => {
 
     const navigate = useNavigate();
 
@@ -30,4 +31,3 @@ const Header = () => {
 
 }
 
-export default Header;
