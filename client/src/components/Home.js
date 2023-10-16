@@ -13,6 +13,10 @@ export const Home = () => {
         console.log(response.data.events);
     }
 
-    return (<div><h1>Home page</h1> {events.map((event) => <p key={event._id}>{event.description}</p>)}</div>)
+    return (
+        <div>
+            <h1>Home page</h1>
+            {events.map((event) => <p key={event._id}>{event.description}</p>)}
+        </div>)
 }
 

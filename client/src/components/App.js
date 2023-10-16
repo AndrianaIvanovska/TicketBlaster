@@ -7,10 +7,13 @@ import { LogIn } from "./LogIn";
 import { ResetPassword } from "./ResetPassword";
 import { Header } from "./Header";
 import { CreateAccount } from "./CreateAccount";
+import '../styles/theme.css';
+import { Footer } from "./Footer";
 
 export function App() {
   return (
     <div>
+
       <Header />
       <Routes>
         <Route exact path="/" element={<Home />} />
@@ -21,6 +24,7 @@ export function App() {
         <Route exact path="/resetpassword" element={<ResetPassword />} />
         <Route path='*' element={<Navigate to="/" />} />  {/* or error page */}
       </Routes>
+      <Footer />
     </div>
   );
 }
