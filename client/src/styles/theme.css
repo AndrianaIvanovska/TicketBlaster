@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    overflow: hidden;
     font: normal normal bold 14px/17px Lato;
 }
 
@@ -105,4 +104,9 @@ button {
 #footer p {
     display: inline;
     color: #FFFFFF;
+}
+
+#home {
+    text-align: center;
+    margin: 30px;
 }
