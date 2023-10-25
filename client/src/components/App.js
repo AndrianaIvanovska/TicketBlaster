@@ -9,6 +9,7 @@ import { Header } from "./Header";
 import { CreateAccount } from "./CreateAccount";
 import '../styles/theme.css';
 import { Footer } from "./Footer";
+import { GetTickets } from "./GetTickets";
 
 export function App() {
   return (
@@ -22,6 +23,7 @@ export function App() {
         <Route exact path="/login" element={<LogIn />} />
         <Route exact path="/createaccount" element={<CreateAccount />} />
         <Route exact path="/resetpassword" element={<ResetPassword />} />
+        <Route exact path="/gettickets" element={<GetTickets />} />
         <Route path='*' element={<Navigate to="/" />} />  {/* or error page */}
       </Routes>
       <Footer />

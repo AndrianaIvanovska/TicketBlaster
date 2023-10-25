@@ -15,13 +15,13 @@ const authProxy = proxy("http://127.0.0.1:10001", {
 
 const eventProxy = proxy("http://127.0.0.1:10002", {
     proxyReqPathResolver: (req) => {
-        return `http://127.0.0.1:10002/api/v1/events${req.url}`;
+        return `http://127.0.0.1:10002/events${req.url}`;
     },
 });
 
 
 app.use("/api/v1/auth", authProxy);
-app.use("/api/v1/events", eventProxy);
+app.use("/events", eventProxy);
 
 app.listen(process.env.PORTEVENT, (err) => {
     if (err) {

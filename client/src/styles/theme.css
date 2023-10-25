@@ -110,3 +110,8 @@ button {
     text-align: center;
     margin: 30px;
 }
+
+#homeevents {
+    display: flex;
+    margin: 0 auto;
+}
