@@ -1,9 +1,3 @@
-// const LogIn = () => {
-//     return <h1>LogIn page</h1>
-// }
-
-// export default LogIn;
-
 import React, { useState, useEffect } from "react";
 // import ProtectedRoute from "./ProtectedRoute";
 

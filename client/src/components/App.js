@@ -1,8 +1,8 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { Home } from "./Home";
-import { Comedy } from "./Comedy";
-import { Concerts } from "./Concerts";
+import { Comedy } from "../pages/Comedy";
+import { Concerts } from "../pages/Concerts";
 import { LogIn } from "./LogIn";
 import { ResetPassword } from "./ResetPassword";
 import { Header } from "./Header";
@@ -10,6 +10,7 @@ import { CreateAccount } from "./CreateAccount";
 import '../styles/theme.css';
 import { Footer } from "./Footer";
 import { GetTickets } from "./GetTickets";
+import { SearchResult } from "./SearchResults";
 
 export function App() {
   return (
@@ -21,9 +22,10 @@ export function App() {
         <Route exact path="/comedy" element={<Comedy />} />
         <Route exact path="/concerts" element={<Concerts />} />
         <Route exact path="/login" element={<LogIn />} />
-        <Route exact path="/createaccount" element={<CreateAccount />} />
+        {/* <Route exact path="/createaccount" element={<CreateAccount />} /> */}
         <Route exact path="/resetpassword" element={<ResetPassword />} />
-        <Route exact path="/gettickets" element={<GetTickets />} />
+        <Route exact path="/gettickets/:id" element={<GetTickets />} />
+        <Route exact path="/search" element={<SearchResult />} />
         <Route path='*' element={<Navigate to="/" />} />  {/* or error page */}
       </Routes>
       <Footer />

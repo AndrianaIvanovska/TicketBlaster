@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { EarliestEvent } from "./EarliestEvent";
+import { Events } from "./Events";
 
 export const Home = () => {
     const [events, setEvents] = useState([]);
@@ -15,7 +17,6 @@ export const Home = () => {
 
     const getEvents = async () => {
         let response = await fetch("http://127.0.0.1:10002/events");
-        //let response = await fetch("http://127.0.0.1:10000/events");
         response = await response.json();
         const events = response.data.events;
         setEvents(events);
@@ -27,8 +28,6 @@ export const Home = () => {
         setEarliestEvents(earliest);
     }
 
-    console.log(earliestEvent.image);
-
     return (
         <div id="home">
             <div>
@@ -38,41 +37,16 @@ export const Home = () => {
                 <p>{earliestEvent.location}</p>
                 <button onClick={navigateToGetTickets}>Get Tickets</button>
             </div>
-            {/* <div>
-                {events.map((event) => <p key={event._id}>{event.title}</p>)}
-            </div> */}
             <div id="homeevents">
                 <div>
-                    {events.map((event) => {
-                        if (event.type === "concert") {
-                            return (
-                                <div>
-                                    <h1>Musical Concerts</h1>
-                                    <img src=""></img>
-                                    <h2> {event.title}</h2>
-                                    <p>{event.date}</p>
-                                    <p>{event.location}</p>
-                                    <button onClick={navigateToGetTickets}>Get Tickets</button>
-                                </div>
-                            )
-                        }
-                    })}
+                    <h1>Musical Concerts</h1>
+                    <Events events={events.filter(event => event.type === "concert")} />
+                    <button onClick={() => { navigate("/concerts") }}>See All Musical Concerts</button>
                 </div>
                 <div>
-                    {events.map((event) => {
-                        if (event.type === "standup") {
-                            return (
-                                <div>
-                                    <h1>Stand-up Comedy</h1>
-                                    <img src=""></img>
-                                    <h2> {event.title}</h2>
-                                    <p>{event.date}</p>
-                                    <p>{event.location}</p>
-                                    <button onClick={navigateToGetTickets}>Get Tickets</button>
-                                </div>
-                            )
-                        }
-                    })}
+                    <h1>Stand-up Comedy</h1>
+                    <Events events={events.filter(event => event.type === "standup")} />
+                    <button onClick={() => { navigate("/comedy") }}>See All Stand-up Comedy Shows</button>
                 </div>
             </div>
         </div >)
