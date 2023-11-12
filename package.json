@@ -6,7 +6,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node ./services/proxy/index.js & node ./services/auth/index.js & node ./services/events/index.js",
         "startauth": "node ./services/auth/index.js ",
-        "startevent": "node ./services/events/index.js ",
+        "startevent": "nodemon ./services/events/index.js ",
         "startproxy": "node ./services/proxy/index.js"
     },
     "repository": {
@@ -32,6 +32,7 @@
         "mongoose": "^7.3.1",
         "morgan": "^1.10.0",
         "multer": "^1.4.5-lts.1",
+        "nodemon": "^3.0.1",
         "uuid": "^9.0.1",
         "validator": "^13.9.0"
     }

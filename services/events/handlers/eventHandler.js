@@ -32,11 +32,17 @@ exports.uploadEventsImage = upload.single("image");
 
 exports.getAll = async (req, res) => {
   try {
+    const limit = req.query.limit;
     let events = await Event.find();
+    let totalCount = events.length;
+    if (limit) {
+      events = events.slice(0, limit);
+    }
     res.status(200).json({
       status: "success",
       data: {
         events,
+        totalCount
       },
     });
   } catch (err) {

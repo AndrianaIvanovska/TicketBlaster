@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { EarliestEvent } from "./EarliestEvent";
 import { Events } from "./Events";
+import EventService from "../services/eventService";
 
 export const Home = () => {
     const [events, setEvents] = useState([]);
@@ -16,9 +17,7 @@ export const Home = () => {
     };
 
     const getEvents = async () => {
-        let response = await fetch("http://127.0.0.1:10002/events");
-        response = await response.json();
-        const events = response.data.events;
+        const events = await EventService.getAllEvents();
         setEvents(events);
         getEarliestEvent(events);
     }

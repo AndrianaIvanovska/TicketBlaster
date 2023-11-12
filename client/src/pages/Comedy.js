@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Events } from "../components/Events";
+import { Events } from "./../components/Events";
+import EventService from "../services/eventService";
 
 export const Comedy = () => {
 
@@ -8,9 +9,7 @@ export const Comedy = () => {
     useEffect(() => { getEvents() }, []);
 
     const getEvents = async () => {
-        let response = await fetch("http://127.0.0.1:10002/events");
-        response = await response.json();
-        const events = response.data.events;
+        const events = await EventService.getAllEvents();
         setEvents(events.filter(event => event.type === "standup"));
     }
 

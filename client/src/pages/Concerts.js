@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Events } from "../components/Events";
+import EventService from "../services/eventService";
 
 export const Concerts = () => {
 
@@ -9,21 +10,14 @@ export const Concerts = () => {
     const eventsPerPage = 5;
 
     useEffect(() => {
-        fetch("http://127.0.0.1:10002/events/totalCount")
-            .then((response) => response.json())
-            .then((data) => {
-                setTotalEvents(data.totalCount);
-                setOffset(0);
-                loadEvents();
-            });
         loadEvents();
     }, []);
 
     const loadEvents = async () => {
-        let response = await fetch(`http://127.0.0.1:10002/events?offset=${offset}&limit=${eventsPerPage}`);
-        response = await response.json();
-        const concertEvents = response.data.events.filter(event => event.type === "concert");
+        const response = await EventService.getAllEventsPerPage(offset, eventsPerPage);
+        const concertEvents = response.events.filter(event => event.type === "concert");
         setEvents([...events, ...concertEvents]);
+        setTotalEvents(response.totalCount);
         setOffset(offset + eventsPerPage);
     }
 
