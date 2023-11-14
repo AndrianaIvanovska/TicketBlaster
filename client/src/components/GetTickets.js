@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import EventService from "../services/eventService";
 
 export const GetTickets = () => {
 
     const { id } = useParams();
-    console.log('Event ID', id);
     const [event, setEvent] = useState(null);
 
     useEffect(() => {
-        fetch(`http://127.0.0.1:10002/events/${id}`)
-            .then(response => response.json())
-            .then(data => setEvent(data))
+        getEvent();
     }, [id]);
+
+    const getEvent = async () => {
+        const response = await EventService.getEventbyId(id);
+        setEvent(response);
+    }
 
     return (
         <div>

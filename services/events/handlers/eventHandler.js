@@ -32,11 +32,16 @@ exports.uploadEventsImage = upload.single("image");
 
 exports.getAll = async (req, res) => {
   try {
-    const limit = req.query.limit;
+    const type = req.query.type;
+    const limit = Number(req.query.limit || '0');
+    const offset = Number(req.query.offset || '0');
     let events = await Event.find();
+    if (type) {
+      events = events.filter(event => event.type == type);
+    }
     let totalCount = events.length;
     if (limit) {
-      events = events.slice(0, limit);
+      events = events.slice(offset, limit + offset);
     }
     res.status(200).json({
       status: "success",
@@ -59,7 +64,7 @@ exports.getOne = async (req, res) => {
     res.status(200).json({
       status: "success",
       data: {
-        event,
+        event
       },
     });
   } catch (err) {

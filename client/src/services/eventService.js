@@ -6,15 +6,22 @@ const getAllEvents = async () => {
     return response.data.events;
 }
 
-const getAllEventsPerPage = async (offset, eventsPerPage) => {
-    let response = await fetch(`${baseUrl}?offset=${offset}&limit=${eventsPerPage}`);
+const getAllEventsPerPage = async (offset, eventsPerPage, type) => {
+    let response = await fetch(`${baseUrl}?offset=${offset}&limit=${eventsPerPage}&type=${type}`);
     response = await response.json();
     return response.data;
 }
 
+const getEventbyId = async (id) => {
+    let response = await fetch(`${baseUrl}/${id}`);
+    response = await response.json();
+    return response.data.event;
+}
+
 const EventService = {
     getAllEvents,
-    getAllEventsPerPage
+    getAllEventsPerPage,
+    getEventbyId
 };
 
 export default EventService;
